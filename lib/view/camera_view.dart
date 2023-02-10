@@ -14,7 +14,8 @@ class CameraView extends StatefulWidget {
   State<CameraView> createState() => CameraViewState();
 }
 
-class CameraViewState extends State<CameraView> {
+class CameraViewState extends State<CameraView>
+    with SingleTickerProviderStateMixin {
   late CameraController controller;
   XFile? pictureFile;
   bool textScanning = false;
