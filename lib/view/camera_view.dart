@@ -37,7 +37,7 @@ class CameraViewState extends State<CameraView>
   void initState() {
     textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
     controller = CameraController(widget.cameras![0], ResolutionPreset.max);
-    cacheManager = WordCacheManager("denemeKelimeler");
+    cacheManager = WordCacheManager("denemeKelimeler2");
     controller.initialize().then((_) {
       if (!mounted) {
         return;
@@ -50,9 +50,12 @@ class CameraViewState extends State<CameraView>
 
   Future<void> check() async {
     await cacheManager.init();
-    if (cacheManager.getValues()?.isNotEmpty ?? false) {
+    if ((cacheManager.getValues()?.isNotEmpty ) ?? false) {
       denemeKelimeleri = cacheManager.getValues();
     }
+    setState(() {
+      
+    });
   }
 
   void getRecognisedText(XFile image) async {
